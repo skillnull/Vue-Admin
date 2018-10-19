@@ -692,7 +692,7 @@
 
 "@vue/cli-service@^3.0.0":
   version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@vue/cli-service/-/cli-service-3.0.3.tgz#dd91f2ee40922001559601d458209e4398887337"
+  resolved "https://registry.yarnpkg.com/@vue/cli-services/-/cli-services-3.0.3.tgz#dd91f2ee40922001559601d458209e4398887337"
   dependencies:
     "@intervolga/optimize-cssnano-plugin" "^1.0.5"
     "@vue/cli-overlay" "^3.0.2"
@@ -1326,7 +1326,7 @@ bonjour@^3.5.0:
     dns-equal "^1.0.0"
     dns-txt "^2.0.2"
     multicast-dns "^6.0.1"
-    multicast-dns-service-types "^1.1.0"
+    multicast-dns-services-types "^1.1.0"
 
 boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
@@ -4274,7 +4274,7 @@ ms@^2.1.1:
 
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
+  resolved "https://registry.yarnpkg.com/multicast-dns-services-types/-/multicast-dns-services-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
 
 multicast-dns@^6.0.1:
   version "6.2.3"
