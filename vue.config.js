@@ -49,16 +49,15 @@ module.exports = {
     outputDir: process.env.VUE_APP_OUTPUT_DIR,
     productionSourceMap: false,
     crossorigin: 'anonymous',
-    chainWebpack: config => {
-        config.resolve.alias
-            .set('@views', resolve('src/views'))
-            .set('@services', resolve('src/services'))
-    },
     css: {
         loaderOptions: {
             sass: {
                 data: scssSource
             }
         }
+    },
+    chainWebpack: config => {
+        config.resolve.alias
+            .set('@views', resolve('src/views'))
     }
 }
