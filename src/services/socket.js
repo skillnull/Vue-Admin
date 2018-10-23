@@ -11,15 +11,15 @@ export const socketService = (param) => {
         listenSocket.onMessage(data)
     })
     socket.on('disconnect', () => {
-        console.log(`%cSocket disconnected`, "color:red")
+        console.log(`%cSocket disconnected`, 'color:red')
     })
     socket.on('error', () => {
-        console.log(`%cSocket error`, "color:red")
+        console.log(`%cSocket error`, 'color:red')
     })
     socket.on('connecting', () => {
         console.log('connnecting')
     })
-    socket.on("reconnect", () => {
+    socket.on('reconnect', () => {
         console.log('reconnect')
     })
 }

@@ -2,6 +2,8 @@
  * fs 模块提供了一些 API，用于以一种类似标准 POSIX 函数的方式与文件系统进行交互。
  * @function fs.readFile(path[, options], callback)
  * @param path <string> | <Buffer> | <URL> | <integer> 文件名或文件描述符。
+ * @param lintOnSave: Type: boolean | 'error', 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码。
+ * 这个值会在 @vue/cli-plugin-eslint 被安装之后生效。
  * @param options <Object> | <string>
  *           encoding <string> | <null> 默认为 null。
  *           flag <string> 详见支持的文件系统flag。默认为 'r'。
@@ -48,6 +50,7 @@ module.exports = {
     baseUrl: process.env.VUE_APP_BASE_URL,
     outputDir: process.env.VUE_APP_OUTPUT_DIR,
     productionSourceMap: false,
+    lintOnSave: process.env.NODE_ENV !== 'production',
     crossorigin: 'anonymous',
     css: {
         loaderOptions: {
