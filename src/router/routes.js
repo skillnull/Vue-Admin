@@ -6,9 +6,10 @@
  * 代码的打包分离，具体解释看如下链接：
  * https://www.cnblogs.com/Man-Dream-Necessary/p/9543738.html
  */
-const index = () => import(/* webpackChunkName: "index" */ '@/views/index') // index页
-const homePage = () => import(/* webpackChunkName: "index" */ '@/views/homePage/homePage') // homePage页
-const notFound = () => import(/* webpackChunkName: "common" */ '@/views/common/404') // 404页
+const index = () => import(/* webpackChunkName: "index" */ '@/views/index') // 框架入口页 index
+const home = () => import(/* webpackChunkName: "index" */ '@/views/home/home') // 内容主页 home
+const about = () => import(/* webpackChunkName: "index" */ '@/views/about/about') // 关于页 about
+const notFound = () => import(/* webpackChunkName: "common" */ '@/views/common/404') // 未知页 404
 
 /*
  * 注意：默认子路由不应该有name属性
@@ -20,17 +21,25 @@ const routes = [
         children: [
             {
                 path: '/',
-                component: homePage,
+                component: home,
                 meta: {
-                    title: 'homePage'
+                    title: 'home'
                 }
             },
             {
-                path: '/homePage',
-                name: 'homePage',
-                component: homePage,
+                path: '/home',
+                name: 'home',
+                component: home,
                 meta: {
-                    title: 'homePage'
+                    title: 'home'
+                }
+            },
+            {
+                path: '/about',
+                name: 'about',
+                component: about,
+                meta: {
+                    title: 'about'
                 }
             }
         ]

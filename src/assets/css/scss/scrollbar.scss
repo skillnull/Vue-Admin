@@ -1,0 +1,36 @@
+::-webkit-scrollbar { // 滚动条整体部分
+    width: 6px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track { // 外层轨道
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track-piece { // 内层滚动槽
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb { // 滚动的滑块
+    background: rgba(32, 33, 36, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(32, 33, 36, 0.4);
+    width: 10px;
+}
+
+::-webkit-scrollbar-corner { // 边角
+    display: none;
+}
+
+::-webkit-resizer { // 定义右下角拖动块的样式
+    background-color: #eee;
+}
+
+::-webkit-scrollbar-button { // 滚动条两端的按钮
+    display: none;
+}

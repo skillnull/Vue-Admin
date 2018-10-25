@@ -29,8 +29,9 @@ const fs = require('fs')
  */
 const path = require('path')
 
-var scssSource = fs.readFileSync('src/assets/css/scss/variables.scss', 'utf-8') + '\r\n' +
-    fs.readFileSync('src/assets/css/scss/common.scss', 'utf-8')
+var scssSource = fs.readFileSync('src/assets/css/scss/global.scss', 'utf-8') + '\r\n' +
+    fs.readFileSync('src/assets/css/scss/common.scss', 'utf-8') + '\r\n' +
+    fs.readFileSync('src/assets/css/scss/variables.scss', 'utf-8')
 
 function resolve (dir) {
     return path.join(__dirname, dir)

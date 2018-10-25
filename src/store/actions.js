@@ -12,5 +12,8 @@ export default {
         let result = await getRequest(url, params)
         commit('USER_INFO', result)
         return result
+    },
+    sideNavFlagFun ({commit, state}, data) { // 左侧导航显隐
+        commit('SIDE_NAV_FLAG', data)
     }
 }
