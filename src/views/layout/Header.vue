@@ -7,7 +7,7 @@
             <div class="menu-wrap">
                 <Menu></Menu>
             </div>
-            <img class="menu-icon" src="../../assets/images/menu.png" alt="MENU" @click="showSideNav">
+            <img class="menu-icon" src="../../assets/img/menu.png" alt="MENU" @click="showSideNav">
         </div>
     </div>
 </template>
