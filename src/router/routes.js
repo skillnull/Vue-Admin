@@ -6,41 +6,69 @@
  * 代码的打包分离，具体解释看如下链接：
  * https://www.cnblogs.com/Man-Dream-Necessary/p/9543738.html
  */
-const index = () => import(/* webpackChunkName: "index" */ '@/views/index') // 框架入口页 index
-const home = () => import(/* webpackChunkName: "index" */ '@/views/home/home') // 内容主页 home
-const about = () => import(/* webpackChunkName: "index" */ '@/views/about/about') // 关于页 about
 const notFound = () => import(/* webpackChunkName: "common" */ '@/views/common/404') // 未知页 404
 
+import DashboardLayout from "@/views/Layout/DashboardLayout.vue";
+
+import Dashboard from "@/views/Dashboard.vue";
+import UserProfile from "@/views/UserProfile.vue";
+import TableList from "@/views/TableList.vue";
+import Typography from "@/views/Typography.vue";
+import Icons from "@/views/Icons.vue";
+import Maps from "@/views/Maps.vue";
+import Notifications from "@/views/Notifications.vue";
+import UpgradeToPRO from "@/views/UpgradeToPRO.vue";
 /*
  * 注意：默认子路由不应该有name属性
  */
 const routes = [
     {
         path: '/',
-        component: index,
+        component: DashboardLayout,
+        redirect: '/dashboard',
         children: [
             {
-                path: '/',
-                component: home,
-                meta: {
-                    title: 'home'
-                }
+                path: "dashboard",
+                name: "Dashboard",
+                component: Dashboard
             },
             {
-                path: '/home',
-                name: 'home',
-                component: home,
-                meta: {
-                    title: 'home'
-                }
+                path: "user",
+                name: "User Profile",
+                component: UserProfile
             },
             {
-                path: '/about',
-                name: 'about',
-                component: about,
+                path: "table",
+                name: "Table List",
+                component: TableList
+            },
+            {
+                path: "typography",
+                name: "Typography",
+                component: Typography
+            },
+            {
+                path: "icons",
+                name: "Icons",
+                component: Icons
+            },
+            {
+                path: "maps",
+                name: "Maps",
                 meta: {
-                    title: 'about'
-                }
+                    hideFooter: true
+                },
+                component: Maps
+            },
+            {
+                path: "notifications",
+                name: "Notifications",
+                component: Notifications
+            },
+            {
+                path: "upgrade",
+                name: "Upgrade to PRO",
+                component: UpgradeToPRO
             }
         ]
     },

@@ -63,5 +63,6 @@ module.exports = {
     chainWebpack: config => {
         config.resolve.alias
             .set('@views', resolve('src/views'))
+            .set('@assets', resolve('src/assets'))
     }
 }
