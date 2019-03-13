@@ -15,9 +15,11 @@
 .env.development 开发测试环境配置
 .env.production 正式发布环境配置
 ```
-> 接口domain配置
 
+> 接口domain配置
+```
 将各环境的 VUE_APP_API_DOMAIN 更改为实际 domain 即可
+```
 
 > 项目命令
 ```
