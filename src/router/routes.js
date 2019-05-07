@@ -1,56 +1,43 @@
-/*
+/**
  * 路由的懒加载
  * 当打包构建应用时，Javascript 包会变得非常大，影响页面加载。
  * 如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。
  * 结合 Vue 的异步组件和 Webpack 的代码分割功能，轻松实现路由组件的懒加载。
  * 代码的打包分离，具体解释看如下链接：
  * https://www.cnblogs.com/Man-Dream-Necessary/p/9543738.html
+ * @warn 默认子路有不应有name属性
  */
-const notFound = () => import(/* webpackChunkName: "common" */ '@/views/common/404') // 未知页 404
 
-import DashboardLayout from "@/views/Layout/DashboardLayout.vue";
-
-import Dashboard from "@/views/Dashboard.vue";
-import UserProfile from "@/views/UserProfile.vue";
-import TableList from "@/views/TableList.vue";
-import Typography from "@/views/Typography.vue";
-import Icons from "@/views/Icons.vue";
-import Maps from "@/views/Maps.vue";
-import Notifications from "@/views/Notifications.vue";
-import UpgradeToPRO from "@/views/UpgradeToPRO.vue";
-/*
- * 注意：默认子路由不应该有name属性
- */
 const routes = [
     {
         path: '/',
-        component: DashboardLayout,
+        component: () => import(/* webpackChunkName: "index" */ '@/views/Layout/DashboardLayout'),
         redirect: '/dashboard',
         children: [
             {
                 path: "dashboard",
                 name: "Dashboard",
-                component: Dashboard
+                component: () => import(/* webpackChunkName: "index" */ '@/views/Dashboard')
             },
             {
                 path: "user",
                 name: "User Profile",
-                component: UserProfile
+                component: () => import(/* webpackChunkName: "components" */ '@/views/UserProfile')
             },
             {
                 path: "table",
                 name: "Table List",
-                component: TableList
+                component: () => import(/* webpackChunkName: "components" */ '@/views/TableList')
             },
             {
                 path: "typography",
                 name: "Typography",
-                component: Typography
+                component: () => import(/* webpackChunkName: "components" */ '@/views/Typography')
             },
             {
                 path: "icons",
                 name: "Icons",
-                component: Icons
+                component: () => import(/* webpackChunkName: "components" */ '@/views/Icons')
             },
             {
                 path: "maps",
@@ -58,24 +45,24 @@ const routes = [
                 meta: {
                     hideFooter: true
                 },
-                component: Maps
+                component: () => import(/* webpackChunkName: "components" */ '@/views/Maps')
             },
             {
                 path: "notifications",
                 name: "Notifications",
-                component: Notifications
+                component: () => import(/* webpackChunkName: "components" */ '@/views/Notifications')
             },
             {
                 path: "upgrade",
                 name: "Upgrade to PRO",
-                component: UpgradeToPRO
+                component: () => import(/* webpackChunkName: "components" */ '@/views/UpgradeToPRO')
             }
         ]
     },
     {
         path: '*',
         name: 'notFound',
-        component: notFound,
+        component: () => import(/* webpackChunkName: "common" */ '@/views/common/404'),
         meta: {
             title: '404'
         }
