@@ -7,6 +7,7 @@
 
 | Integration | Version |
 | :--- | :--- |
+| vue | 2 |
 | vue-router | ^3.0.1 |
 | vuex           | ^3.0.1 |
 | vue-cli        | vue-cli-3 |
