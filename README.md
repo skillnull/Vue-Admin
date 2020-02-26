@@ -1,6 +1,5 @@
 <p align="center">
   <a href="https://www.skillnull.com"><img src="https://skillnull.com/others/images/brand/MIT.svg" alt="License MIT"></a>
-    <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="License"></a>
 </p>
 
 > 适合快速搭建响应式管理后台的Vue模板
