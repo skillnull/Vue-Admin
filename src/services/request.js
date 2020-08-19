@@ -29,6 +29,14 @@ axios.interceptors.request.use(function (config) {
         config.headers['Content-Type'] = 'application/json'
         config.timeout = 30 * 1000
     }
+    delete config.data.isForm
+    const params = new URLSearchParams()
+    for (const key in config.data) {
+        if (config.data.hasOwnProperty(key)) {
+            params.append(key, config.data[key])
+        }
+    }
+    config.data = params
     return config
 }, function (error) {
     // Do something with request error
