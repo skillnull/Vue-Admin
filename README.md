@@ -2,18 +2,6 @@
   <a href="https://www.skillnull.com"><img src="https://skillnull.com/others/images/brand/MIT.svg" alt="License MIT"></a>
 </p>
 
-> 适合快速搭建响应式管理后台的Vue模板
-
-| Integration | Version |
-| :--- | :--- |
-| vue | 2 |
-| vue-router | ^3.0.1 |
-| vuex           | ^3.0.1 |
-| vue-cli        | vue-cli-3 |
-| axios           | ^0.18.0 |
-| socket.io-client | ^2.1.1 |
-| vue-material | ^1.0.0-beta-10.2 |
-
 > 注
 ```
 .env 本地环境配置
