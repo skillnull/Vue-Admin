@@ -48,7 +48,7 @@ function resolve (dir) {
  * @type {{baseUrl: *, outputDir: *, productionSourceMap: boolean, crossorigin: string, chainWebpack: module.exports.chainWebpack, css: {loaderOptions: {sass: {data: string}}}}}
  */
 module.exports = {
-    baseUrl: process.env.VUE_APP_BASE_URL,
+    publicPath: process.env.VUE_APP_BASE_URL,
     outputDir: process.env.VUE_APP_OUTPUT_DIR,
     productionSourceMap: false,
     lintOnSave: process.env.NODE_ENV !== 'production',
