@@ -64,5 +64,9 @@ module.exports = {
         config.resolve.alias
             .set('@views', resolve('src/views'))
             .set('@assets', resolve('src/assets'))
+    },
+    devServer: {
+        // 关闭 http://localhost:8080/sockjs-node/info?t=
+        injectClient: false
     }
 }
