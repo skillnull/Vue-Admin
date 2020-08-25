@@ -67,6 +67,17 @@ module.exports = {
     },
     devServer: {
         // 关闭 http://localhost:8080/sockjs-node/info?t=
-        injectClient: false
+        injectClient: false,
+        host: '0.0.0.0',
+        port: 8080,
+        // 方向代理解决跨域
+        proxy: {
+            'api': {
+                target: 'http://www.skillnull.com',
+                pathRewrite: {'^/api': ''},
+                changeOrigin: true,
+                secure: false
+            }
+        }
     }
 }
