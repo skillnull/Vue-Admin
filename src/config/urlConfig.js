@@ -1,6 +1,6 @@
-import homePage from './url/homePage'
+import login from './url/common'
 
-const url = Object.assign(homePage)
+const url = Object.assign(login)
 
 /**
  * @function 拼接接口域名和路径
