@@ -60,6 +60,14 @@ const routes = [
         ]
     },
     {
+        path: '/login',
+        name: 'login',
+        component: () => import(/* webpackChunkName: "common" */ '@/views/common/login'),
+        meta: {
+            title: '登陆'
+        }
+    },
+    {
         path: '*',
         name: 'notFound',
         component: () => import(/* webpackChunkName: "common" */ '@/views/common/404'),

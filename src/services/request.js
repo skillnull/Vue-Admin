@@ -18,6 +18,7 @@ import axios from 'axios'
  * SON.stringify 序列化结果为："{"name":"demo","age":10}"
  */
 import qs from 'qs'
+import router from "../router";
 
 // 请求拦截器
 axios.interceptors.request.use(function (config) {
@@ -47,8 +48,12 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
     // Do something with response data, such as close loading animation
     switch (response.data.code) {
-        case 1: // 成功
+        case 200: // 成功
             return Promise.resolve(response.data.data)
+            break
+        case 401: // 登陆失效
+            router.push('/login').catch(() => {
+            })
             break
         default:
             return Promise.reject(response.data)

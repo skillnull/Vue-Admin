@@ -48,7 +48,7 @@ function resolve (dir) {
  * @type {{baseUrl: *, outputDir: *, productionSourceMap: boolean, crossorigin: string, chainWebpack: module.exports.chainWebpack, css: {loaderOptions: {sass: {data: string}}}}}
  */
 module.exports = {
-    publicPath: process.env.VUE_APP_BASE_URL,
+    baseUrl: process.env.VUE_APP_BASE_URL,
     outputDir: process.env.VUE_APP_OUTPUT_DIR,
     productionSourceMap: false,
     lintOnSave: process.env.NODE_ENV !== 'production',
@@ -67,13 +67,13 @@ module.exports = {
     },
     devServer: {
         // 关闭 http://localhost:8080/sockjs-node/info?t=
-        injectClient: false,
+        // injectClient: false,
         host: '0.0.0.0',
-        port: 8080,
-        // 方向代理解决跨域
+        port: 8081,
+        // 反向代理解决跨域
         proxy: {
             'api': {
-                target: 'http://www.skillnull.com',
+                target: 'http://www.xxx.com',
                 pathRewrite: {'^/api': ''},
                 changeOrigin: true,
                 secure: false
