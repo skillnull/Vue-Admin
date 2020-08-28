@@ -161,7 +161,13 @@
     line-height: 1 !important;
 }
 
-/deep/ .el-submenu .el-menu-item {
+/deep/ .el-submenu {
+    height: auto;
+    line-height: 1;
+    padding: 0
+}
+
+/deep/ .el-menu-item {
     height: auto;
     line-height: 1;
     padding: 0

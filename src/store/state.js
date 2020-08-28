@@ -11,36 +11,36 @@ export default {
                     icon: 'dashboard',
                     to: '/dashboard',
                     title: 'Dashboard'
-                },
-                {
-                    icon: 'person',
-                    to: '/user',
-                    title: 'User Profile'
-                },
+                }
             ]
         },
         {
-            icon: 'content_paste',
+            icon: 'el-icon-user',
+            to: '/user',
+            title: 'User Profile'
+        },
+        {
+            icon: 'el-icon-date',
             to: '/table',
             title: 'Table list'
         },
         {
-            icon: 'library_books',
+            icon: 'el-icon-notebook-1',
             to: '/typography',
             title: 'Icons'
         },
         {
-            icon: 'location_on',
+            icon: 'el-icon-map-location',
             to: '/maps',
             title: 'Maps'
         },
         {
-            icon: 'notifications',
+            icon: 'el-icon-bell',
             to: '/notifications',
             title: 'Notifications'
         },
         {
-            icon: 'unarchive',
+            icon: 'el-icon-upload2',
             to: '/upgrade',
             title: 'Upgrade to PRO'
         }

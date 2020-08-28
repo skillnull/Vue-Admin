@@ -70,4 +70,8 @@ export default {
     /deep/ .off-canvas-sidebar .md-list .md-list-item-content, .sidebar .md-list .md-list-item-content {
         color: white !important;
     }
+
+    /deep/ .off-canvas-sidebar .nav li a, .sidebar .nav li a {
+        margin: 10px 15px 0 0 !important;
+    }
 </style>
