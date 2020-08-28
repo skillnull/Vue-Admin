@@ -3,12 +3,34 @@
         <notifications></notifications>
         <side-bar>
             <mobile-menu slot="content"></mobile-menu>
-            <sidebar-link :to="item.to" :key="index" v-for="(item, index) in menus">
-                <md-icon>{{item.icon}}</md-icon>
-                <p>{{item.title}}</p>
-            </sidebar-link>
+            <el-menu background-color="transparent" :default-openeds="['0']" unique-opened>
+                <slot :key="index" v-for="(item, index) in menus">
+                    <el-submenu :index="`${index}`" v-if="item.children">
+                        <template slot="title">
+                            <sidebar-link :to="item.to">
+                                <i :class="[item.icon]"></i>
+                                <p>{{item.title}}</p>
+                            </sidebar-link>
+                        </template>
+                        <el-menu-item :index="`${index}-${childIndex}`" :key="childIndex" v-for="(child,childIndex) in item.children">
+                            <template slot="title">
+                                <sidebar-link :to="child.to">
+                                    <p>{{child.title}}</p>
+                                </sidebar-link>
+                            </template>
+                        </el-menu-item>
+                    </el-submenu>
+                    <el-menu-item :index="`${index}`" v-else>
+                        <template slot="title">
+                            <sidebar-link :to="item.to" :children="item.children">
+                                <i :class="[item.icon]"></i>
+                                <p>{{item.title}}</p>
+                            </sidebar-link>
+                        </template>
+                    </el-menu-item>
+                </slot>
+            </el-menu>
         </side-bar>
-
         <div class="main-panel">
             <top-navbar></top-navbar>
             <dashboard-content></dashboard-content>
@@ -26,43 +48,7 @@ import MobileMenu from "@/views/Layout/MobileMenu.vue";
 export default {
     data () {
         return {
-            menus: [
-                {
-                    icon: 'dashboard',
-                    to: '/dashboard',
-                    title: 'Dashboard'
-                },
-                {
-                    icon: 'person',
-                    to: '/user',
-                    title: 'User Profile'
-                },
-                {
-                    icon: 'content_paste',
-                    to: '/table',
-                    title: 'Table list'
-                },
-                {
-                    icon: 'library_books',
-                    to: '/typography',
-                    title: 'Icons'
-                },
-                {
-                    icon: 'location_on',
-                    to: '/maps',
-                    title: 'Maps'
-                },
-                {
-                    icon: 'notifications',
-                    to: '/notifications',
-                    title: 'Notifications'
-                },
-                {
-                    icon: 'unarchive',
-                    to: '/upgrade',
-                    title: 'Upgrade to PRO'
-                }
-            ]
+            menus: this.$store.state.menus
         }
     },
     components: {

@@ -6,13 +6,8 @@
         :style="sidebarStyle"
     >
         <div class="logo">
-<!--            <a href="#" class="simple-text logo-mini">-->
-<!--                <div class="logo-img">-->
-<!--                    <img :src="imgLogo" alt=""/>-->
-<!--                </div>-->
-<!--            </a>-->
             <a
-                href="https://www.creative-tim.com/product/vue-material-dashboard"
+                href="https://www.skillnull.com"
                 target="_blank"
                 class="simple-text logo-normal"
             >
@@ -107,6 +102,18 @@ export default {
         }
     }
 
+    /deep/ .md-list.md-theme-default .md-list-item-content {
+        i {
+            margin-right: 5px !important;
+            font-size: 20px !important;
+        }
+    }
+
+    /deep/ .md-list.md-theme-default .router-link-active .md-list-item-content {
+        i {
+            color: #409eff;
+        }
+    }
 
     @media screen and (min-width: 991px) {
         .nav-mobile-menu {
