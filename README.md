@@ -4,7 +4,7 @@
 
 > 注
 ```
-.env 本地环境配置
+.env 在所有环境中被载入
 .env.development 开发测试环境配置
 .env.production 正式发布环境配置
 ```
