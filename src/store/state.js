@@ -5,7 +5,7 @@ export default {
         {
             icon: 'el-icon-odometer',
             to: '',
-            title: '大盘',
+            title: 'Dashboard',
             children: [
                 {
                     icon: 'dashboard',
