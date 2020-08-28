@@ -29,7 +29,7 @@ const fs = require('fs')
  */
 const path = require('path')
 
-var scssSource = fs.readFileSync('src/assets/scss/global.scss', 'utf-8') + '\r\n' +
+var scssSource = fs.readFileSync('src/assets/scss/cover-element.scss', 'utf-8') + '\r\n' +
     fs.readFileSync('src/assets/scss/common.scss', 'utf-8') + '\r\n' +
     fs.readFileSync('src/assets/scss/variables.scss', 'utf-8')
 
