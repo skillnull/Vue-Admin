@@ -3,7 +3,7 @@
         <notifications></notifications>
         <side-bar>
             <mobile-menu slot="content"></mobile-menu>
-            <el-menu background-color="transparent" :default-openeds="['0']" unique-opened>
+            <el-menu background-color="transparent" :default-openeds="defaultOpens" unique-opened>
                 <slot :key="index" v-for="(item, index) in menus">
                     <el-submenu :index="`${index}`" v-if="item.children">
                         <template slot="title">
@@ -56,6 +56,31 @@ export default {
         DashboardContent,
         ContentFooter,
         MobileMenu
+    },
+    computed: {
+        defaultOpens () {
+            const path = this.$route.path
+            let default_opens = []
+            this.menus && this.menus.length > 0 && this.menus.map((item, index) => {
+                if (item.children && this.recursion_menus(item, path)) {
+                    default_opens = [`${index}`]
+                }
+            })
+            return default_opens
+        }
+    },
+    methods: {
+        recursion_menus (item, path) {
+            for (let [key, value] of Object.entries(item.children)) {
+                if (value.children) {
+                    this.recursion_menus(value, path)
+                } else {
+                    if (value.to === path) {
+                        return true
+                    }
+                }
+            }
+        }
     }
 }
 </script>
