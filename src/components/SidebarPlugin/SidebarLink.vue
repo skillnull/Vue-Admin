@@ -72,6 +72,6 @@ export default {
     }
 
     /deep/ .off-canvas-sidebar .nav li a, .sidebar .nav li a {
-        margin: 10px 15px 0 0 !important;
+        margin: 5px 15px 0 0 !important;
     }
 </style>
