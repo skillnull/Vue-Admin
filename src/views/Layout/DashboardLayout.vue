@@ -3,7 +3,7 @@
         <notifications></notifications>
         <side-bar>
             <mobile-menu slot="content"></mobile-menu>
-            <el-menu background-color="transparent" :default-openeds="defaultOpens" unique-opened>
+            <el-menu background-color="transparent" class="el-menu-vertical" :default-openeds="defaultOpens" unique-opened>
                 <slot :key="index" v-for="(item, index) in menus">
                     <el-submenu :index="`${index}`" v-if="item.children">
                         <template slot="title">
@@ -12,7 +12,10 @@
                                 <p>{{item.title}}</p>
                             </sidebar-link>
                         </template>
-                        <el-menu-item :index="`${index}-${childIndex}`" :key="childIndex" v-for="(child,childIndex) in item.children">
+                        <el-menu-item :index="`${index}-${childIndex}`" :key="childIndex"
+                                      v-for="(child,childIndex) in item.children"
+                                      style="padding: 0 25px"
+                        >
                             <template slot="title">
                                 <sidebar-link :to="child.to">
                                     <p>{{child.title}}</p>
@@ -20,7 +23,7 @@
                             </template>
                         </el-menu-item>
                     </el-submenu>
-                    <el-menu-item :index="`${index}`" v-else>
+                    <el-menu-item :index="`${index}`" v-else style="padding: 0 5px;">
                         <template slot="title">
                             <sidebar-link :to="item.to" :children="item.children">
                                 <i :class="[item.icon]"></i>
@@ -93,6 +96,12 @@ export default {
         .content {
             height: calc(100vh - #{$footer-h} - #{$top-naver-h});
             overflow-y: auto;
+        }
+    }
+
+    /deep/ .el-menu-vertical {
+        .el-submenu__icon-arrow {
+            font-size: 18px !important;
         }
     }
 
