@@ -14,16 +14,16 @@
                         </template>
                         <el-menu-item :index="`${index}-${childIndex}`" :key="childIndex"
                                       v-for="(child,childIndex) in item.children"
-                                      style="padding: 0 25px"
+                                      style="padding: 0 25px;"
                         >
                             <template slot="title">
                                 <sidebar-link :to="child.to">
-                                    <p>{{child.title}}</p>
+                                    <p style="padding: 0 15px;">{{child.title}}</p>
                                 </sidebar-link>
                             </template>
                         </el-menu-item>
                     </el-submenu>
-                    <el-menu-item :index="`${index}`" v-else style="padding: 0 5px;">
+                    <el-menu-item :index="`${index}`" v-else style="padding: 0 15px;">
                         <template slot="title">
                             <sidebar-link :to="item.to" :children="item.children">
                                 <i :class="[item.icon]"></i>
@@ -103,6 +103,10 @@ export default {
         .el-submenu__icon-arrow {
             font-size: 18px !important;
         }
+
+        .md-list-item .md-list-item-container .md-ripple {
+              padding: 4px 5px;
+          }
     }
 
     @media (max-width: 991px) {
