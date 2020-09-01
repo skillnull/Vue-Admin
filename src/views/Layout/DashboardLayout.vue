@@ -105,8 +105,8 @@ export default {
         }
 
         .md-list-item .md-list-item-container .md-ripple {
-              padding: 4px 5px;
-          }
+            padding: 4px 5px;
+        }
     }
 
     @media (max-width: 991px) {
