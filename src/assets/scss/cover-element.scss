@@ -135,6 +135,10 @@
     line-height: 26px;
 }
 
+/deep/ .el-menu {
+    border: none;
+}
+
 /deep/ .el-menu-item:focus {
     background-color: transparent !important;
 }
