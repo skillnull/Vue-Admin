@@ -23,21 +23,23 @@ import router from "../router";
 // 请求拦截器
 axios.interceptors.request.use(function (config) {
     // Do something before request is send, such as open loading  animation
+    config.headers['client_id'] = '912ad09c483c45c685af639b3d35f728'
     if (config.data && config.data.isForm) {
-        config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
         config.timeout = 60 * 1000
+        const params = new URLSearchParams()
+        for (const key in config.data) {
+            if (config.data.hasOwnProperty(key)) {
+                params.append(key, config.data[key])
+            }
+        }
+        config.data = params
+        delete config.data.isForm
     } else {
         config.headers['Content-Type'] = 'application/json'
-        config.timeout = 30 * 1000
+        config.timeout = 5 * 60 * 1000
+        config.data = JSON.stringify(config.data)
     }
-    delete config.data.isForm
-    const params = new URLSearchParams()
-    for (const key in config.data) {
-        if (config.data.hasOwnProperty(key)) {
-            params.append(key, config.data[key])
-        }
-    }
-    config.data = params
     return config
 }, function (error) {
     // Do something with request error
@@ -55,6 +57,10 @@ axios.interceptors.response.use(function (response) {
             router.push('/login').catch(() => {
             })
             break
+        case 500:
+            this.$message('服务错误')
+            return Promise.reject(response.data)
+            break
         default:
             return Promise.reject(response.data)
     }
@@ -69,12 +75,16 @@ axios.interceptors.response.use(function (response) {
  * @returns {Promise<any>}
  */
 export const getRequest = async (url, params) => {
-    let urlStr = url + `?${qs.stringify(params)}`
+    let resultParams = ''
+    for (let key in params) {
+        resultParams = resultParams + '&' + key + '=' + params[key]
+    }
+    let urlStr = url + `?${resultParams.substr(1)}`
     let parameters = {
         url: params ? urlStr : url,
         method: 'get'
     }
-
+    axios.defaults.withCredentials = true
     let data = await axios.request(parameters)
     return data
 }
@@ -99,6 +109,7 @@ export const postRequest = async (url, params, isForm) => {
         method: 'post',
         data: finalParams
     }
+    axios.defaults.withCredentials = true
     let data = await axios.request(parameters)
     return data
 }
