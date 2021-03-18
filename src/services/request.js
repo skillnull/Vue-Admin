@@ -87,7 +87,7 @@ export const getRequest = async (url, params) => {
 export const postRequest = async (url, params, isForm) => {
     let finalParams
 
-    if (isForm === undefined) {
+    if (isForm === undefined || !isForm) {
         finalParams = params
     } else {
         params.isForm = true
