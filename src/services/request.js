@@ -23,18 +23,19 @@ import router from "../router";
 // 请求拦截器
 axios.interceptors.request.use(function (config) {
     // Do something before request is send, such as open loading  animation
-    config.headers['client_id'] = '912ad09c483c45c685af639b3d35f728'
     if (config.data && config.data.isForm) {
-        config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
-        config.timeout = 60 * 1000
-        const params = new URLSearchParams()
-        for (const key in config.data) {
-            if (config.data.hasOwnProperty(key)) {
-                params.append(key, config.data[key])
+        if (config.data.isForm !== 'formData') {
+            config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
+            config.timeout = 60 * 1000
+            const params = new URLSearchParams()
+            for (const key in config.data) {
+                if (config.data.hasOwnProperty(key)) {
+                    params.append(key, config.data[key])
+                }
             }
+            config.data = params
+            delete config.data.isForm
         }
-        config.data = params
-        delete config.data.isForm
     } else {
         config.headers['Content-Type'] = 'application/json'
         config.timeout = 5 * 60 * 1000
@@ -100,7 +101,7 @@ export const postRequest = async (url, params, isForm) => {
     if (isForm === undefined || !isForm) {
         finalParams = params
     } else {
-        params.isForm = true
+        params.isForm = isForm
         finalParams = params
     }
 
