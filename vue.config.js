@@ -76,11 +76,9 @@ module.exports = {
                 // 只处理比这个值大的资源。按字节计算 默认：0
                 threshold: 0,
                 // 只有压缩率比这个值小的资源才会被处理 默认：0.8
-                minRatio: 0.8,
-                // 是否删除原资源 默认：false
-                deleteOriginalAssets: true
+                minRatio: 0.8
             })
-        ],
+        ]
     },
     devServer: {
         // 关闭 http://localhost:8080/sockjs-node/info?t=
