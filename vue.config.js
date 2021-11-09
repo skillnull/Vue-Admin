@@ -29,6 +29,9 @@ const fs = require('fs')
  */
 const path = require('path')
 
+// 提供带 Content-Encoding 编码的压缩版的资源
+const CompressionPlugin = require("compression-webpack-plugin")
+
 var scssSource = fs.readFileSync('src/assets/scss/cover-element.scss', 'utf-8') + '\r\n' +
     fs.readFileSync('src/assets/scss/common.scss', 'utf-8') + '\r\n' +
     fs.readFileSync('src/assets/scss/variables.scss', 'utf-8')
@@ -64,6 +67,20 @@ module.exports = {
         config.resolve.alias
             .set('@views', resolve('src/views'))
             .set('@assets', resolve('src/assets'))
+    },
+    configureWebpack: {
+        plugins: [
+            new CompressionPlugin({
+                // 可以是 (buffer, cb) => cb(buffer) 或者是使用 zlib 里面的算法的 {String} 默认： 'gzip'
+                algorithm: 'gzip',
+                // 只处理比这个值大的资源。按字节计算 默认：0
+                threshold: 0,
+                // 只有压缩率比这个值小的资源才会被处理 默认：0.8
+                minRatio: 0.8,
+                // 是否删除原资源 默认：false
+                deleteOriginalAssets: true
+            })
+        ],
     },
     devServer: {
         // 关闭 http://localhost:8080/sockjs-node/info?t=
