@@ -15,7 +15,7 @@ import axios from 'axios'
  * qs.stringify() 和JSON.stringify()功能都是序列化，区别如下：
  * 对于{name:'demo',age:10}
  * qs.stringify 序列化结果为：name=demo&age=10
- * SON.stringify 序列化结果为："{"name":"demo","age":10}"
+ * JSON.stringify 序列化结果为："{"name":"demo","age":10}"
  */
 import qs from 'qs'
 import router from "../router";
