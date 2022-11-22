@@ -20,7 +20,7 @@
         "eslint": "^5.7.0",
         "google-maps": "^4.3.3",
         "moment": "^2.27.0",
-        "socket.io-client": "^2.1.1",
+        "socket.io-client": "^2.5.0",
         "vue": "^2.5.17",
         "vue-clickaway": "^2.2.2",
         "vue-github-buttons": "^3.0.1",
